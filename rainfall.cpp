@@ -7,6 +7,14 @@ using namespace std;
 
 unsigned int counter = 0;
 
+void set_cursor(bool visible)
+{
+    CONSOLE_CURSOR_INFO info;
+    info.dwSize = 100;
+    info.bVisible = visible;
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &info);
+}
+
 int main(void)
 {
     cout << "press q to quit" << endl;
@@ -15,6 +23,7 @@ int main(void)
     int running = 1;
     while (running = 1)
     {
+        set_cursor(false);
         DWORD mode;
         INPUT_RECORD event;
         BOOL done = FALSE;
@@ -41,8 +50,8 @@ int main(void)
                     }
             }
             Sleep(150);
-            printf("█       █       █       █       █\n");
-            printf("    █       █       █       █       █\n");
+            printf("█       █       █       █       █       █\n");
+            printf("    █       █       █       █       █       █\n");
         }
     }
 }
