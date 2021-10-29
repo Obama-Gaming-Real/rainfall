@@ -27,14 +27,12 @@ int main(void)
             GetConsoleMode(hstdin, &mode);
             SetConsoleMode(hstdin, 0);
 
-            if (WaitForSingleObject(hstdin, 0) == WAIT_OBJECT_0) /* if kbhit */
+            if (WaitForSingleObject(hstdin, 0) == WAIT_OBJECT_0)
             {
-                DWORD count; /* ignored */
+                DWORD count;
 
-                /* Get the input event */
                 ReadConsoleInput(hstdin, &event, 1, &count);
 
-                /* Only respond to key release events */
                 if ((event.EventType == KEY_EVENT) && !event.Event.KeyEvent.bKeyDown)
                     switch (event.Event.KeyEvent.wVirtualKeyCode)
                     {
@@ -43,8 +41,8 @@ int main(void)
                     }
             }
             Sleep(150);
-            printf("█       █ \n");
-            printf("    █ \n");
+            printf("█       █       █       █       █\n");
+            printf("    █       █       █       █       █\n");
         }
     }
 }
