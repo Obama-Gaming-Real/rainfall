@@ -46,6 +46,7 @@ int main(void)
                     switch (event.Event.KeyEvent.wVirtualKeyCode)
                     {
                     case VK_Q:
+                        set_cursor(true);
                         return 0;
                     }
             }
